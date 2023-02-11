@@ -1,0 +1,7 @@
+{
+  "name": "kasiApp-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
