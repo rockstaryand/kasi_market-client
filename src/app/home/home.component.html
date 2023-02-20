@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Welcome to my e-commerce app </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let product of products" (click)="viewProduct(product.id)">
+    <img [src]="product.image_url" [alt]="product.name" />
+    <ion-card-header>
+      <ion-card-title>{{ product.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>{{ product.description }}</p>
+      <ion-row>
+        <ion-col>
+          <ion-label>{{ product.price | currency }}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
