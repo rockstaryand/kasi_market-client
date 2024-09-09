@@ -1,0 +1,48 @@
+<ion-list>
+  <ion-item *ngFor="let review of reviews">
+    <ion-label>
+      <!-- <h2>{{ review.title }}</h2>
+      <p>{{ review.body }}</p> -->
+      <p>{{ review.rating }}/5 stars</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+<ion-button expand="block" (click)="showAddReview = !showAddReview">
+  {{ showAddReview ? "Cancel" : "Add a review" }}
+</ion-button>
+<ion-card *ngIf="showAddReview">
+  <ion-card-header>
+    <ion-card-title>Add a review</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <form (ngSubmit)="addReview()">
+      <!-- <ion-item>
+        <ion-label position="floating">Title</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="newReview.title"
+          required
+        ></ion-input>
+      </ion-item> -->
+      <!-- <ion-item>
+        <ion-label position="floating">Body</ion-label>
+        <ion-textarea [(ngModel)]="newReview.body" required></ion-textarea>
+      </ion-item> -->
+      <ion-item>
+        <ion-label position="floating">Rating</ion-label>
+        <ion-range
+          [(ngModel)]="newReview.rating"
+          min="1"
+          max="5"
+          step="1"
+          pin="true"
+          snaps="true"
+        >
+          <ion-icon range-left slot="start" name="star-outline"></ion-icon>
+          <ion-icon range-right slot="end" name="star"></ion-icon>
+        </ion-range>
+      </ion-item>
+      <ion-button expand="block" type="submit">Submit</ion-button>
+    </form>
+  </ion-card-content>
+</ion-card>

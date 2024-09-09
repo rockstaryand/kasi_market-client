@@ -23,9 +23,9 @@ export class AppComponent {
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(private readonly supabase: AuthService, private router: Router) {
     this.supabase.authChanges((_, session): any => {
-      console.log(session);
+      // console.log(session);
       if (session?.user) {
-        this.router.navigate(['/account']);
+        this.router.navigate(['/home']);
       }
     });
   }

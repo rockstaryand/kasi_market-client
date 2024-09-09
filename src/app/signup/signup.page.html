@@ -1,45 +1,28 @@
 <!-- <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>Signup</ion-title>
   </ion-toolbar>
 </ion-header> -->
 
 <!-- <ion-content>
-  <div class="ion-padding">
-    <p>Sign in with your email and password</p>
-  </div>
-  <ion-list inset="true">
-    <form class="form_container" (ngSubmit)="handleLogin($event)">
-      <ion-item>
-        <ion-label class="input_label" position="stacked">Email</ion-label>
-        <ion-input
-          [(ngModel)]="email"
-          name="email"
-          autocomplete
-          type="email"
-        ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Password</ion-label>
-        <ion-input
-          [(ngModel)]="password"
-          name="password"
-          autocomplete
-          type="password"
-        ></ion-input>
-      </ion-item>
-      <div class="ion-text-center">
-        <ion-button type="submit" fill="clear">Login</ion-button>
+  <div class="form-box">
+    <form class="form">
+      <span class="title">Sign up</span>
+      <span class="subtitle">Create a free account with your email.</span>
+      <div class="form-container">
+        <input type="text" class="input" placeholder="Full Name" />
+        <input type="email" class="input" placeholder="Email" />
+        <input type="password" class="input" placeholder="Password" />
       </div>
-      <div class="form-section">
-        <p>Don't have an account? <a routerLink="signup">Sign Up</a></p>
-      </div>
+      <button>Sign up</button>
     </form>
-  </ion-list>
+    <div class="form-section">
+      <p>Have an account? <a routerLink="">Log in</a></p>
+    </div>
+  </div>
 </ion-content> -->
 
-<!-- <ion-content> -->
-<form class="form_container" (ngSubmit)="handleLogin($event)">
+<form class="form_container" (ngSubmit)="handleSignUp($event)">
   <div class="logo_container">
     <ion-img
       src="../../assets//icon/M.png"
@@ -51,7 +34,7 @@
     ></ion-img>
   </div>
   <div class="title_container">
-    <p class="title">Login to your Account</p>
+    <p class="title">Signup</p>
     <span class="subtitle"
       >Get started with our app, just create an account and enjoy the
       experience.</span
@@ -131,7 +114,7 @@
     />
   </div>
   <ion-button title="Sign In" type="submit" class="sign-in_btn">
-    <span>Sign In</span>
+    <span>Sign Up</span>
   </ion-button>
 
   <div class="separator">
@@ -139,7 +122,10 @@
     <span>Or</span>
     <hr class="line" />
   </div>
-  <button title="Sign In" type="submit" class="sign-in_ggl">
+
+  <p style="color: darkgrey">Have an account? <a routerLink="">Log in</a></p>
+
+  <!-- <button title="Sign In" type="submit" class="sign-in_ggl">
     <svg
       height="18"
       width="18"
@@ -174,8 +160,8 @@
       </g>
     </svg>
     <span>Sign In with Google</span>
-  </button>
-  <button title="Sign In" type="submit" class="sign-in_apl">
+  </button> -->
+  <!-- <button title="Sign In" type="submit" class="sign-in_apl">
     <svg
       preserveAspectRatio="xMidYMid"
       version="1.1"
@@ -193,10 +179,6 @@
       </g>
     </svg>
     <span>Sign In with Apple</span>
-  </button>
-  <p style="color: darkgrey">
-    Don't have an account? <a routerLink="signup">SIGNUP</a>
-  </p>
+  </button> -->
   <p class="note">Terms of use &amp; Conditions</p>
 </form>
-<!-- </ion-content> -->

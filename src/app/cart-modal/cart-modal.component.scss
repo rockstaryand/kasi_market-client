@@ -1,0 +1,36 @@
+/* cart-modal.component.scss */
+.cart-item {
+  ion-thumbnail {
+    width: 100px;
+    height: 100px;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  ion-buttons {
+    ion-button {
+      --color: red; /* Customize the button color */
+    }
+  }
+}
+
+.cart-total {
+  font-weight: bold;
+  font-size: 20px;
+  --ion-text-color: var(--ion-color-success); /* Customize the text color */
+}
+
+.checkout-buttons {
+  ion-button {
+    margin-top: 20px;
+  }
+}

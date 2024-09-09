@@ -3,20 +3,50 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ product.name }}</ion-title>
+    <ion-title>{{ product?.name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card>
+  <ion-card *ngIf="product; else noProduct">
     <img [src]="product.image_url" alt="{{ product.name }}" />
     <ion-card-header>
-      <!-- <ion-card-subtitle>{{ product?.category }}</ion-card-subtitle> -->
       <ion-card-title>{{ product.name }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p>{{ product.description }}</p>
       <p><strong>Price:</strong> {{ product.price | currency }}</p>
+
+      <div class="filters">
+        <h2>Select Size</h2>
+        <ion-row>
+          <ion-col>
+            <ion-fab-button shape="round" (click)="selectedCategory('All')">S</ion-fab-button>
+          </ion-col>
+          <ion-col>
+            <ion-fab-button shape="round" (click)="selectedCategory('Jackets')">M</ion-fab-button>
+          </ion-col>
+          <ion-col>
+            <ion-fab-button shape="round" (click)="selectedCategory('Pants')">L</ion-fab-button>
+          </ion-col>
+          <ion-col>
+            <ion-fab-button shape="round" (click)="selectedCategory('T-shirts')">XL</ion-fab-button>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="filters">
+        <h2>Choose Color</h2>
+        <ion-row>
+          <ion-col *ngFor="let color of availableColors">
+            <ion-fab-button shape="round" [color]="color" (click)="onColorSelect(color)"></ion-fab-button>
+          </ion-col>
+        </ion-row>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+<ng-template #noProduct>
+  <p>No product found.</p>
+</ng-template>

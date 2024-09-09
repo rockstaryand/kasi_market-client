@@ -3,5 +3,7 @@ export class Product {
   name: string = '';
   price: number = 0;
   image_url: string = '';
+  quantity: number = 0;
   description: string = '';
+  category: string = '';
 }
