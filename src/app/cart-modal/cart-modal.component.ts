@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
 import { Product } from '../models/products';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-cart-modal',

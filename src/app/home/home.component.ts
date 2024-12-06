@@ -5,10 +5,10 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 import { Product } from '../models/products';
 import { Router, NavigationExtras } from '@angular/router';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { ModalController } from '@ionic/angular';
 import { CartModalComponent } from '../cart-modal/cart-modal.component';
 import { SwiperComponent } from 'swiper/angular';

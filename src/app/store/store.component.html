@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/products"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Storefront</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Store Banner -->
+  <ion-card>
+    <!-- <img [src]="store.bannerImageUrl" alt="{{ store.name }} banner" class="banner-image" /> -->
+    <ion-card-header>
+      <ion-card-title>{{ store.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Location:</strong> {{ store.address }}</p>
+      <p><strong>Contact:</strong> {{ store.phone }}</p>
+      <p><strong>Trading hours:</strong> Monday - Friday (08:00 - 17:00)</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Products Section -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Products</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" *ngFor="let product of storeProducts">
+            <ion-card>
+              <img [src]="product.image_url" alt="{{ product.name }}" />
+              <ion-card-header>
+                <ion-card-title>{{ product.name }}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>{{ product.description }}</p>
+                <p><strong>Price:</strong> {{ product.price | currency }}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -5,3 +5,37 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
+
+
+.icon-container {
+  position: relative;
+}
+
+.icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.storefront-icon {
+  position: relative;
+  z-index: 1;
+}
+
+.overlay-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.icon-wrapper:hover .overlay-icon {
+  opacity: 1;
+}
+
+.icon-wrapper:hover .storefront-icon {
+  opacity: 0.5;
+}

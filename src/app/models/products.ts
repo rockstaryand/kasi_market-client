@@ -6,4 +6,5 @@ export class Product {
   quantity: number = 0;
   description: string = '';
   category: string = '';
+  store_id:  number = 0;
 }

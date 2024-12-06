@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { Profile, AuthService } from '../auth.service';
+import { Profile, AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-account',

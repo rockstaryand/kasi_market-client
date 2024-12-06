@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 // import { FavoritesService } from '../favorite.service';
 import { Product } from '../models/products';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-product',
@@ -11,7 +13,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductComponent implements OnInit {
   // productId: string = 0;
-  product: any;
+  product: Product;
   availableColors: string[] = ['red', 'blue', 'black'];
   products: Product[] = [];
   selectCategory: string[] = ['All', 'Jackets', 'Pants', 'Headwear', 'Bags'];
@@ -20,12 +22,23 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private productService: ProductService // private favoritesService: FavoritesService
-  ) {}
+  ) {
+    this.product = {
+      id: 0,
+      name: '',
+      price: 0,
+      image_url: '',
+      quantity:  0,
+      description: '',
+      category: '',
+      store_id:  0
+    }
+  }
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
-    console.log(id, '??');
     this.productService.getProductById(id).subscribe((product) => {
       this.product = product;
       console.log(this.product, 'product');
@@ -45,7 +58,6 @@ export class ProductComponent implements OnInit {
 
     for (let col of this.selectedColor) {
       color = col;
-      console.log(this.product.color);
 
       // If necessary, update the product image to reflect the selected color
       if (color === 'red') {
@@ -56,6 +68,10 @@ export class ProductComponent implements OnInit {
         console.log('blue');
       }
     }
+  }
+
+  viewStore(id: number) {
+    this.router.navigate([`/stores/${id}`]);
   }
 
   selectedCategory(category: string) {

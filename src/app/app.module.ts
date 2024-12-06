@@ -14,6 +14,7 @@ import { ProductComponent } from './product/product.component';
 import { AccountPage } from './account/account.page';
 import { CartModalComponent } from './cart-modal/cart-modal.component';
 import { ProductReviewsComponent } from './product-reviews/product-reviews.component';
+import { StoreComponent } from './store/store.component';
 // import { IonicStorageModule } from '@ionic/storage-angular';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ProductReviewsComponent } from './product-reviews/product-reviews.compo
     AccountPage,
     CartModalComponent,
     ProductReviewsComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,

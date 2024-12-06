@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../models/products';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 import { Reviews } from '../models/reviews';
 import { Storage } from '@ionic/storage-angular';
 

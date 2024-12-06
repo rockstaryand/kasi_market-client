@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { AccountPage } from './account/account.page';
 import { CartModalComponent } from './cart-modal/cart-modal.component';
+import { StoreComponent } from './store/store.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
     path: 'checkout',
     loadChildren: () =>
       import('./checkout/checkout.module').then((m) => m.CheckoutPageModule),
+  },
+  {
+    path: 'stores/:id', 
+    component: StoreComponent
   },
   {
     path: 'signup',
