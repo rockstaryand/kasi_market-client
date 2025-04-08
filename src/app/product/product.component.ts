@@ -41,7 +41,6 @@ export class ProductComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
     this.productService.getProductById(id).subscribe((product) => {
       this.product = product;
-      console.log(this.product, 'product');
       if (!this.product) {
         console.error(`Product with id ${id} not found.`);
         return;

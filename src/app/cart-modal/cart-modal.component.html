@@ -1,4 +1,3 @@
-<!-- cart-modal.component.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title>Cart Summary</ion-title>
@@ -29,7 +28,7 @@
   </ion-list>
 
   <ion-item class="cart-total">
-    <ion-label>Total:</ion-label>
+    <ion-label>Total (incl. VAT):</ion-label>
     <ion-label slot="end">{{ cartTotal | currency }}</ion-label>
   </ion-item>
 
@@ -38,3 +37,4 @@
     <ion-button expand="block" (click)="dismissModal()">Continue shopping</ion-button>
   </div>
 </ion-content>
+

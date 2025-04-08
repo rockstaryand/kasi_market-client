@@ -53,8 +53,13 @@ export class HomeComponent implements OnInit, AfterContentChecked {
 
   ngOnInit() {
     this.productService.getProducts().subscribe((data: any) => {
-      this.products = data;
-      const shuffledArray = this.shuffleArray(data);
+      if(data) {
+        this.products = data;
+        this.shuffleArray(data);
+      } else {
+        console.error('there is no data to display')
+      }
+
     });
   }
 
@@ -96,8 +101,11 @@ export class HomeComponent implements OnInit, AfterContentChecked {
   }
 
   addToCart(product: Product) {
-    this.cartService.addToCart(product);
-    this.cartItemCount = this.cartService.getItems().length;
+    this.cartService.addItemToCart(product);
+    this.cartService.getCartItems().subscribe((items) => {
+      console.log(items, 'what items are here?')
+      this.cartItemCount = items.length
+    });
   }
   selectedCategory(category: string) {
     this.selectCategory = category;
@@ -108,8 +116,12 @@ export class HomeComponent implements OnInit, AfterContentChecked {
   }
 
   async openCartModal() {
-    this.cartItems = this.cartService.getItems();
-    this.cartTotal = this.cartService.getTotal();
+    this.cartService.getCartItems().subscribe((items) => {
+      this.cartItems = items
+    });
+     this.cartService.getCartTotal().subscribe((total) => {
+      this.cartTotal = total
+    });
     const modal = await this.modalController.create({
       component: CartModalComponent,
       componentProps: {

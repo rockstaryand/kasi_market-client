@@ -22,6 +22,7 @@
         </ion-row>
       </ion-grid>
     </ion-card-header>
+    
     <ion-card-content>
       <p>{{ product.description }}</p>
       <p><strong>Price:</strong> {{ product.price | currency }}</p>
@@ -44,14 +45,9 @@
         </ion-row>
       </div>
 
-      <!-- <div class="filters">
-        <h2>Choose Color</h2>
-        <ion-row>
-          <ion-col *ngFor="let color of availableColors">
-            <ion-fab-button shape="round" [color]="color" (click)="onColorSelect(color)"></ion-fab-button>
-          </ion-col>
-        </ion-row>
-      </div> -->
+      <!-- Product Reviews Section -->
+      <app-product-reviews [productId]="product.id"></app-product-reviews>
+      
     </ion-card-content>
   </ion-card>
 </ion-content>
